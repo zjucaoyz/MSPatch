@@ -19,7 +19,7 @@ python -u run.py \
   --data_path ETTm1.csv \
   --model_id ETTm1_$seq_len'_'96 \
   --model $model_name \
-  --data ETTh1 \
+  --data ETTm1 \
   --features M \
   --seq_len $seq_len \
   --label_len 0 \
@@ -43,7 +43,7 @@ python -u run.py \
   --data_path ETTm1.csv \
   --model_id ETTm1_$seq_len'_'192 \
   --model $model_name \
-  --data ETTh1 \
+  --data ETTm1 \
   --features M \
   --seq_len $seq_len \
   --label_len 48 \
@@ -67,7 +67,7 @@ python -u run.py \
   --data_path ETTm1.csv \
   --model_id ETTm1_$seq_len'_'336 \
   --model $model_name \
-  --data ETTh1 \
+  --data ETTm1 \
   --features M \
   --seq_len $seq_len \
   --label_len 48 \
@@ -91,7 +91,7 @@ python -u run.py \
   --data_path ETTm1.csv \
   --model_id ETTm1_$seq_len'_'720 \
   --model $model_name \
-  --data ETTh1 \
+  --data ETTm1 \
   --features M \
   --seq_len $seq_len \
   --label_len 48 \
