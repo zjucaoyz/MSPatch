@@ -1,9 +1,7 @@
 #export CUDA_VISIBLE_DEVICES=0
 
-model_name=TimeMixer
+model_name=MSPatch
 seq_len=96
-down_sampling_layers=2
-down_sampling_window=2
 learning_rate=0.001
 batch_size=32
 train_epochs=10
@@ -40,9 +38,7 @@ python -u run.py \
   --learning_rate $learning_rate \
   --train_epochs $train_epochs \
   --patience $patience \
-  --down_sampling_layers $down_sampling_layers \
-  --down_sampling_method avg \
-  --down_sampling_window $down_sampling_window
+
 
 python -u run.py \
   --task_name long_term_forecast \
@@ -71,9 +67,7 @@ python -u run.py \
   --learning_rate $learning_rate \
   --train_epochs $train_epochs \
   --patience $patience \
-  --down_sampling_layers $down_sampling_layers \
-  --down_sampling_method avg \
-  --down_sampling_window $down_sampling_window
+  
 
 python -u run.py \
   --task_name long_term_forecast \
@@ -103,9 +97,7 @@ python -u run.py \
   --learning_rate $learning_rate \
   --train_epochs $train_epochs \
   --patience $patience \
-  --down_sampling_layers $down_sampling_layers \
-  --down_sampling_method avg \
-  --down_sampling_window $down_sampling_window
+
 
 python -u run.py \
   --task_name long_term_forecast \
@@ -135,6 +127,3 @@ python -u run.py \
   --learning_rate $learning_rate \
   --train_epochs $train_epochs \
   --patience $patience \
-  --down_sampling_layers $down_sampling_layers \
-  --down_sampling_method avg \
-  --down_sampling_window $down_sampling_window
