@@ -18,10 +18,9 @@ To install and run MSPatch, follow these steps:
    git clone https://github.com/zjucaoyz/MSPatch.git
    cd MSPatch
 2. Training the Model
-   
-- To train the MSPatch model on your dataset, use the following command:
+
     ```bash
-   python train.py --config configs/ETTh1.yaml
+   python run.py --model MSPatch --data ETTh1 --pred_len 96
 
 ## Results
 MSPatch has been extensively tested on multiple benchmark datasets, including ETTh1, Traffic, and Weather. The framework consistently achieves state-of-the-art performance, particularly in long-term forecasting tasks.
