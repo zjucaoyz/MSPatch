@@ -1,10 +1,10 @@
 import torch
 import torch.nn.functional as F
 from torch import nn
-from Time_Series_Library.layers.Transformer_EncDec import Encoder, EncoderLayer
-from Time_Series_Library.layers.SelfAttention_Family import FullAttention, MSPatchAttentionLayer, MSPatchLinearAttention, AttentionLayer
-from Time_Series_Library.layers.Embed import MultiPatchEmbedding
-from Time_Series_Library.layers.Autoformer_EncDec import series_decomp
+from layers.Transformer_EncDec import Encoder, EncoderLayer
+from layers.SelfAttention_Family import FullAttention, MSPatchAttentionLayer, MSPatchLinearAttention, AttentionLayer
+from layers.Embed import MultiPatchEmbedding
+from layers.Autoformer_EncDec import series_decomp
 
 
 class FlattenHead(nn.Module):
@@ -122,21 +122,16 @@ class Model(nn.Module):
             enc_out_s_list.append(x_enc_s)
             enc_out_t_list.append(x_enc_t)
 
-        # 对季节部分进行分解映射
         for i in range(self.block_layer):
             enc_out_s_list = self.MSPatch_s_Blocks[i](enc_out_s_list)  # 32*7,12,16
-        # 对趋势部分进行MSPatch
         for i in range(self.block_layer):
             enc_out_t_list = self.MSPatch_t_Blocks[i](enc_out_t_list)  # 32*7,12,16
 
-        # 合并
         enc_out_list = [a + b for a, b in zip(enc_out_s_list, enc_out_t_list)]  # 32*7,12,16
 
         for i in range(len(enc_out_list)):
-            # 先reshape再merge, 对不同的patch进行预测后再合并
             enc_out_list[i] = torch.reshape(enc_out_list[i],
                                             (-1, n_vars, enc_out_list[i].shape[-2], enc_out_list[i].shape[-1]))
-
         enc_out_list = self.patch_mix(enc_out_list)
 
         for i in range(len(self.head_list)):
