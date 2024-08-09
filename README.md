@@ -24,3 +24,9 @@ To install and run MSPatch, follow these steps:
 
 ## Results
 MSPatch has been extensively tested on multiple benchmark datasets, including ETTh1, Traffic, and Weather. The framework consistently achieves state-of-the-art performance, particularly in long-term forecasting tasks.
+
+## Results
+We appreciate the following GitHub repos a lot for their valuable code and efforts.
+
+Time-Series-Library (https://github.com/thuml/Time-Series-Library)
+Autoformer (https://github.com/thuml/Autoformer)
